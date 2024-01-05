@@ -2,6 +2,7 @@
     LeetCode 167: Two Sum II - Input array is sorted
     Given an array of integers numbers that is already sorted in non-decreasing order, 
     find two numbers such that they add up to a specific target number.
+    Your solution must use only constant extra space.
 */
 
 #include <iostream>
