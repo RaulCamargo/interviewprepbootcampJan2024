@@ -11,21 +11,31 @@
 
 using namespace std;
 
-vector<int> twoSum(vector<int>& numbers, int target) {
+vector<int> twoSum(vector<int>& numbers, int target) 
+{
+    int left = 0;
+    int right = numbers.size() - 1;
 
-    unordered_map<int, int> map;
-    vector<int> result(2);
+    vector<int> result = {left, right};
 
-    for(int i = 0; i < numbers.size(); i++) 
+    while (left < right)
     {
-        int complement = target - numbers[i];
-        if(map.find(complement) != map.end()) 
+        int sum = numbers[left] + numbers[right];
+
+        if (sum == target)
         {
-            result.push_back(map[complement] + 1);
-            result.push_back(i + 1);
-            return result;
+            result[0] = left + 1;
+            result[1] = right + 1;
+            break;
         }
-        map[numbers[i]] = i;
+        else if (sum < target)
+        {
+            left++;
+        }
+        else
+        {
+            right--;
+        }
     }
 
     return result;
